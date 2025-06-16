@@ -1,2 +1,29 @@
-#env
-/env
+# Entorno virtual
+env/
+venv/
+
+# Archivos temporales y cachés de Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivo de resultados (salida del scraping)
+resultado.xlsx
+
+# WebDriver binario
+chromedriver.exe
+
+# Logs (opcional)
+*.log
+
+# Configuración de IDEs
+.vscode/
+.idea/
+
+# Dependencias si ya no usás requirements.txt
+requirements.txt
+
