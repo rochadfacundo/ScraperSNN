@@ -18,6 +18,7 @@ Scraper automático que consulta el padrón de productores de seguros habilitado
 - BeautifulSoup
 - OpenPyXL
 - Tkinter (GUI)
+- Pillow
 
 ---
 

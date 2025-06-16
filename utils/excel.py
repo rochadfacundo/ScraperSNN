@@ -1,7 +1,9 @@
 import os
+from pathlib import Path
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
+from datetime import datetime
 
 # Estilos globales
 header_font = Font(name="Cascadia Code", bold=True, size=16)
@@ -21,9 +23,16 @@ borde_grueso = Border(
     bottom=Side(style='medium', color='000000')
 )
 
-def exportar_a_excel(datos: dict, archivo="resultado.xlsx"):
+def exportar_a_excel(datos: dict):
+    # 🗂 Ruta segura a "Documentos/Datos Matriculados"
+    carpeta_destino = Path.home() / "Documents" / "Datos de matriculas"
+    carpeta_destino.mkdir(parents=True, exist_ok=True)
+
+    fecha_str = datetime.now().strftime("%d-%m-%Y")
+    archivo = carpeta_destino / f"datos {fecha_str}.xlsx"
+
     # Crear o cargar archivo
-    if os.path.exists(archivo):
+    if archivo.exists():
         wb = load_workbook(archivo)
         ws = wb.active
     else:

@@ -14,8 +14,18 @@ Thumbs.db
 #binario driver
 chromedriver.exe
 
-# Archivo de resultados (salida del scraping)
+#dist
+dist/
+build/
+
+gui.spec
+
+
+# Archivo de resultados
 resultado.xlsx
+
+#tips
+tip.txt
 
 # WebDriver binario
 chromedriver.exe
