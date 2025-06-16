@@ -1,4 +1,4 @@
-# 🕵️‍♂️ ScrapPolizasTyS
+# 🕵️‍♂️ ScraperSNN
 
 Scraper automático que consulta el padrón de productores de seguros habilitados en el sitio oficial de la Superintendencia de Seguros de la Nación (SSN) de Argentina, y exporta los datos a un archivo Excel con formato personalizado.
 
