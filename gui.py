@@ -80,6 +80,6 @@ def buscar_en_segundo_plano(matricula):
     for k, v in datos.items():
         resultado.insert(tk.END, f"{k}: {v}\n")
     resultado.config(state="disabled")
-    exportar_a_excel(datos)
+    exportar_a_excel(datos,matricula)
 
 root.mainloop()

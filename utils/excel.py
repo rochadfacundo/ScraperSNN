@@ -23,15 +23,17 @@ borde_grueso = Border(
     bottom=Side(style='medium', color='000000')
 )
 
-def exportar_a_excel(datos: dict):
-    # 🗂 Ruta segura a "Documentos/Datos Matriculados"
+def exportar_a_excel(datos: dict, matricula: str):
+    # 🗂 Ruta segura a "Documentos/Datos de matriculas"
     carpeta_destino = Path.home() / "Documents" / "Datos de matriculas"
     carpeta_destino.mkdir(parents=True, exist_ok=True)
 
     fecha_str = datetime.now().strftime("%d-%m-%Y")
     archivo = carpeta_destino / f"datos {fecha_str}.xlsx"
 
-    # Crear o cargar archivo
+    # Insertar matrícula como primera clave
+    datos_completos = {"Matrícula": matricula, **datos}
+
     if archivo.exists():
         wb = load_workbook(archivo)
         ws = wb.active
@@ -41,7 +43,7 @@ def exportar_a_excel(datos: dict):
         ws.title = "Resultado"
 
         # Cabeceras
-        for col_index, key in enumerate(datos.keys(), 1):
+        for col_index, key in enumerate(datos_completos.keys(), 1):
             cell = ws.cell(row=1, column=col_index, value=key)
             cell.font = header_font
             cell.alignment = center_align
@@ -49,23 +51,27 @@ def exportar_a_excel(datos: dict):
             cell.border = borde_grueso
         ws.row_dimensions[1].height = 30
 
-    # Fila disponible
+        # Autoajuste inicial
+        for col_index, (key, value) in enumerate(datos_completos.items(), 1):
+            max_length = max(len(str(key)), len(str(value)))
+            ws.column_dimensions[get_column_letter(col_index)].width = max_length * 1.4 + 4
+
+    # Fila siguiente
     next_row = ws.max_row + 1
 
-    # Carga de datos
-    for col_index, value in enumerate(datos.values(), 1):
+    # Insertar valores
+    for col_index, value in enumerate(datos_completos.values(), 1):
         cell = ws.cell(row=next_row, column=col_index, value=value)
         cell.font = data_font
         cell.alignment = center_align
         cell.border = borde_suave
 
+        # Ajustar ancho si el nuevo valor es más largo que el actual
+        col_letter = get_column_letter(col_index)
+        actual_width = ws.column_dimensions[col_letter].width or 0
+        nuevo_ancho = len(str(value)) * 1.4 + 4
+        if nuevo_ancho > actual_width:
+            ws.column_dimensions[col_letter].width = nuevo_ancho
+
     ws.row_dimensions[next_row].height = 30
-
-    # Autoajuste de columnas (solo si es primera vez)
-    if next_row == 2:
-        for col_index, (key, value) in enumerate(zip(datos.keys(), datos.values()), 1):
-            max_length = max(len(str(key)), len(str(value)))
-            width = max_length * 1.4 + 4
-            ws.column_dimensions[get_column_letter(col_index)].width = width
-
     wb.save(archivo)
