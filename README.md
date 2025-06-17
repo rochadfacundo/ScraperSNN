@@ -4,14 +4,14 @@ Scraper automático que consulta el padrón de productores de seguros habilitado
 
 ---
 
-## 🚀 Características
+## Características
 
 - 🧠 Ingreso de número de matrícula y búsqueda automática en la web de la SSN
 - 📄 Extracción de datos clave: nombre, documento, CUIT, domicilio, provincia, teléfonos, email
 - 📊 Exportación a Excel.
 ---
 
-## 🛠️ Tecnologías usadas
+## Tecnologías usadas
 
 - Python 3.10+
 - Selenium
@@ -22,7 +22,7 @@ Scraper automático que consulta el padrón de productores de seguros habilitado
 
 ---
 
-## 📦 Instalación
+## Instalación
 
 ```bash
 # Clonar el repositorio
