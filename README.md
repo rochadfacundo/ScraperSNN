@@ -6,9 +6,9 @@ Scraper automático que consulta el padrón de productores de seguros habilitado
 
 ## Características
 
-- 🧠 Ingreso de número de matrícula y búsqueda automática en la web de la SSN
-- 📄 Extracción de datos clave: nombre, documento, CUIT, domicilio, provincia, teléfonos, email
-- 📊 Exportación a Excel.
+- Ingreso de número de matrícula y búsqueda automática en la web de la SSN
+- Extracción de datos clave: nombre, documento, CUIT, domicilio, provincia, teléfonos, email
+- Exportación a Excel.
 ---
 
 ## Tecnologías usadas
