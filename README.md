@@ -11,7 +11,7 @@ Scraper automático que consulta el padrón de productores de seguros habilitado
 - Exportación a Excel.
 ---
 
-## Tecnologías usadas
+## Tecnologías
 
 - Python 3.10+
 - Selenium
@@ -25,7 +25,7 @@ Scraper automático que consulta el padrón de productores de seguros habilitado
 ## Instalación
 
 ```bash
-# Clonar el repositorio
+# Clonar
 git clone https://github.com/tuusuario/scrap-polizas.git
 cd scrap-polizas
 
