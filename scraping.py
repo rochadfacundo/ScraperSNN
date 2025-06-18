@@ -46,6 +46,7 @@ def get_dato_fuera_de_span(soup, label):
             return full_text.replace(span.get_text(strip=True), "").strip()
     return "--"
 
+
 def buscar_datos(matricula):
     try:
         options = Options()
@@ -77,10 +78,14 @@ def buscar_datos(matricula):
             "Provincia": get_dato_fuera_de_span(soup, "Provincia"),
             "Teléfonos": get_dato(soup, "Teléfonos"),
             "Email": get_dato(soup, "E-mail"),
+            "Ramo": get_dato(soup, "Ramo"),
+            "Nro. de Resolución": get_dato_fuera_de_span(soup, "Nro. de Resolución"),
+            "Fº de Resolución": get_dato_fuera_de_span(soup, "Fº de Resolución")
         }
 
     except Exception as e:
         return {"Error": f"Ocurrió un error: {str(e)}"}
+
 
 def exportar_a_excel(datos: dict):
     archivo = "resultado.xlsx"
