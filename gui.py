@@ -20,7 +20,7 @@ def obtener_ruta_icono():
     return os.path.join("assets", "logo.ico")
 
 root = tk.Tk()
-root.title("Scraper SSN - Búsqueda por Matrícula")
+root.title("Scraper SSN - Búsqueda por Matrículas")
 root.geometry("550x520")
 root.iconbitmap(obtener_ruta_icono())
 
@@ -39,7 +39,7 @@ frame_radio = tk.Frame(root)
 frame_radio.pack()
 
 tk.Radiobutton(frame_radio, text="Buscar una matrícula", variable=modo_busqueda, value="una", command=lambda: alternar_inputs()).grid(row=0, column=0, padx=10)
-tk.Radiobutton(frame_radio, text="Buscar un rango", variable=modo_busqueda, value="rango", command=lambda: alternar_inputs()).grid(row=0, column=1, padx=10)
+tk.Radiobutton(frame_radio, text="Buscar un rango de matrículas", variable=modo_busqueda, value="rango", command=lambda: alternar_inputs()).grid(row=0, column=1, padx=10)
 
 # Inputs
 frame_inputs = tk.Frame(root)
