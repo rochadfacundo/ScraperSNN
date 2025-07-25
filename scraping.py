@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -28,15 +29,21 @@ def get_dato_fuera_de_span(soup, label):
             return full_text.replace(span.get_text(strip=True), "").strip()
     return "--"
 
-def buscar_datos(matricula, reintentos=3):
+def buscar_datos(matricula, reintentos=4):
     try:
         for intento in range(reintentos + 1):
+            print(f"🟡 Intento {intento + 1} para matrícula {matricula}")
+
             options = Options()
             options.add_argument('--headless')
             options.add_argument('--disable-gpu')
             options.add_argument('--no-sandbox')
 
-            chromedriver_path = os.path.join(os.getcwd(), "chromedriver.exe")
+            if getattr(sys, 'frozen', False):
+                chromedriver_path = os.path.join(sys._MEIPASS, "chromedriver.exe")
+            else:
+                chromedriver_path = os.path.join(os.getcwd(), "chromedriver.exe")
+
             service = Service(executable_path=chromedriver_path)
             driver = webdriver.Chrome(service=service, options=options)
 
@@ -44,16 +51,16 @@ def buscar_datos(matricula, reintentos=3):
                 driver.get("https://www.ssn.gob.ar/STORAGE/REGISTROS/PRODUCTORES/PRODUCTORESACTIVOSFILTRO.ASP")
                 driver.find_element(By.ID, "matricula").send_keys(matricula)
                 driver.find_element(By.NAME, "Submit").click()
+                print("📤 Formulario enviado")
 
-                # 🔁 Esperar que se abra una nueva pestaña
-                WebDriverWait(driver, 6).until(lambda d: len(d.window_handles) > 1)
-
+                WebDriverWait(driver, 10).until(lambda d: len(d.window_handles) > 1)
                 driver.switch_to.window(driver.window_handles[1])
+                print("🧭 Segunda pestaña abierta")
 
-                # ✅ Esperar que aparezca el contenido clave (Nombre)
-                WebDriverWait(driver, 6).until(
+                WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.XPATH, "//span[contains(text(), 'Nombre')]"))
                 )
+                print("📄 Página cargada")
 
                 html = driver.page_source
                 soup = BeautifulSoup(html, "html.parser")
