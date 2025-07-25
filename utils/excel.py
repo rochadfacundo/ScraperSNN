@@ -7,8 +7,20 @@ from openpyxl.utils import get_column_letter
 from datetime import datetime
 
 # === Cargar zonas AMBA y barrios de CABA ===
-with open("assets/zonas.json", encoding="utf-8") as f:
+import sys
+
+def obtener_ruta_zonas_json():
+    if getattr(sys, 'frozen', False):
+        # Ejecutándose como .exe (PyInstaller)
+        base_path = sys._MEIPASS
+    else:
+        # Ejecutándose como script normal
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, "assets", "zonas.json")
+
+with open(obtener_ruta_zonas_json(), encoding="utf-8") as f:
     zonas = json.load(f)
+
 
 mapa_zonas = []
 barrios_caba = []

@@ -6,6 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 def get_dato(soup, label):
     el = soup.find('span', string=lambda s: s and label in s)
@@ -26,7 +28,7 @@ def get_dato_fuera_de_span(soup, label):
             return full_text.replace(span.get_text(strip=True), "").strip()
     return "--"
 
-def buscar_datos(matricula, reintentos=2):
+def buscar_datos(matricula, reintentos=3):
     try:
         for intento in range(reintentos + 1):
             options = Options()
@@ -38,35 +40,42 @@ def buscar_datos(matricula, reintentos=2):
             service = Service(executable_path=chromedriver_path)
             driver = webdriver.Chrome(service=service, options=options)
 
-            driver.get("https://www.ssn.gob.ar/STORAGE/REGISTROS/PRODUCTORES/PRODUCTORESACTIVOSFILTRO.ASP")
-            driver.find_element(By.ID, "matricula").send_keys(matricula)
-            driver.find_element(By.NAME, "Submit").click()
+            try:
+                driver.get("https://www.ssn.gob.ar/STORAGE/REGISTROS/PRODUCTORES/PRODUCTORESACTIVOSFILTRO.ASP")
+                driver.find_element(By.ID, "matricula").send_keys(matricula)
+                driver.find_element(By.NAME, "Submit").click()
 
-            time.sleep(3)  # puede ajustarse si sigue fallando
+                # 🔁 Esperar que se abra una nueva pestaña
+                WebDriverWait(driver, 6).until(lambda d: len(d.window_handles) > 1)
 
-            if len(driver.window_handles) < 2:
+                driver.switch_to.window(driver.window_handles[1])
+
+                # ✅ Esperar que aparezca el contenido clave (Nombre)
+                WebDriverWait(driver, 6).until(
+                    EC.presence_of_element_located((By.XPATH, "//span[contains(text(), 'Nombre')]"))
+                )
+
+                html = driver.page_source
+                soup = BeautifulSoup(html, "html.parser")
                 driver.quit()
-                print(f"⚠️ Intento {intento + 1} fallido para matrícula {matricula}")
-                continue  # intentar de nuevo
 
-            driver.switch_to.window(driver.window_handles[1])
-            html = driver.page_source
-            driver.quit()
+                return {
+                    "Nombre": get_dato(soup, "Nombre"),
+                    "Documento": get_dato(soup, "Documento"),
+                    "CUIT": get_dato(soup, "CUIT"),
+                    "Domicilio": get_dato(soup, "Domicilio"),
+                    "Provincia": get_dato_fuera_de_span(soup, "Provincia"),
+                    "Teléfonos": get_dato(soup, "Teléfonos"),
+                    "Email": get_dato(soup, "E-mail"),
+                    "Ramo": get_dato(soup, "Ramo"),
+                    "Nro. de Resolución": get_dato_fuera_de_span(soup, "Nro. de Resolución"),
+                    "Fº de Resolución": get_dato_fuera_de_span(soup, "Fº de Resolución")
+                }
 
-            soup = BeautifulSoup(html, "html.parser")
-
-            return {
-                "Nombre": get_dato(soup, "Nombre"),
-                "Documento": get_dato(soup, "Documento"),
-                "CUIT": get_dato(soup, "CUIT"),
-                "Domicilio": get_dato(soup, "Domicilio"),
-                "Provincia": get_dato_fuera_de_span(soup, "Provincia"),
-                "Teléfonos": get_dato(soup, "Teléfonos"),
-                "Email": get_dato(soup, "E-mail"),
-                "Ramo": get_dato(soup, "Ramo"),
-                "Nro. de Resolución": get_dato_fuera_de_span(soup, "Nro. de Resolución"),
-                "Fº de Resolución": get_dato_fuera_de_span(soup, "Fº de Resolución")
-            }
+            except Exception as e:
+                print(f"❌ Fallo intento {intento + 1} para matrícula {matricula}: {e}")
+                driver.quit()
+                continue
 
         return {"Error": f"No se encontraron datos para la matrícula {matricula} luego de {reintentos + 1} intentos."}
 

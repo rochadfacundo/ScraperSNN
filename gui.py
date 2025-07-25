@@ -28,9 +28,15 @@ root.geometry("550x520")
 root.iconbitmap(obtener_ruta_icono())
 
 # Logo
-logo_path = os.path.join("assets", "logo.png")
+def obtener_ruta_logo_png():
+    if getattr(sys, 'frozen', False):
+        return os.path.join(sys._MEIPASS, "assets", "logo.png")
+    return os.path.join("assets", "logo.png")
+
+logo_path = obtener_ruta_logo_png()
 if os.path.exists(logo_path):
     img = Image.open(logo_path).resize((100, 100))
+
     logo_img = ImageTk.PhotoImage(img)
     logo_label = tk.Label(root, image=logo_img)
     logo_label.pack(pady=10)
