@@ -1,0 +1,106 @@
+{
+  "Zona Sur": {
+    "Avellaneda": [
+      "Avellaneda",
+      "Dock Sud",
+      "Gerli",
+      "Piñeyro",
+      "Sarandí",
+      "Villa Domínico",
+      "Wilde"
+    ],
+    "Lanús": [
+      "Gerli",
+      "Lanús Oeste",
+      "Lanús Este",
+      "Monte Chingolo",
+      "Remedios de Escalada",
+      "Valentín Alsina"
+    ],
+    "Lomas de Zamora": [
+      "Banfield",
+      "Ingeniero Budge",
+      "Llavallol",
+      "Lomas de Zamora",
+      "San José1",
+      "Temperley",
+      "Turdera",
+      "Villa Centenario",
+      "Villa Fiorito",
+      "Villa Albertina",
+      "Parque Barón",
+      "Villa Lamadrid",
+      "Santa Catalina",
+      "Santa Marta"
+    ],
+    "Esteban Echeverría": [
+      "Nueve de Abril",
+      "Canning oriental",
+      "El Jagüel",
+      "Luis Guillón",
+      "Monte Grande"
+    ],
+    "Ezeiza": [
+      "Aeropuerto Internacional Ezeiza",
+      "Canning occidental",
+      "Carlos Spegazzini",
+      "Ezeiza",
+      "La Unión",
+      "Tristán Suárez"
+    ],
+    "San Vicente": [
+      "San Vicente",
+      "Alejandro Korn",
+      "Domselaar",
+      "Las Gaviotas de Canning"
+    ],
+    "Presidente Perón": [
+      "Guernica"
+    ],
+    "Almirante Brown": [
+      "Adrogué",
+      "Burzaco",
+      "Claypole",
+      "Don Orione",
+      "Glew",
+      "José Mármol",
+      "Longchamps",
+      "Malvinas Argentinas",
+      "Ministro Rivadavia",
+      "Rafael Calzada",
+      "San Francisco de Asís",
+      "San Francisco Solano",
+      "San José"
+    ],
+    "Quilmes": [
+      "Bernal",
+      "Don Bosco",
+      "Ezpeleta",
+      "Quilmes",
+      "San Francisco Solano",
+      "Villa La Florida"
+    ],
+    "Berazategui": [
+      "Berazategui",
+      "Hudson",
+      "Juan María Gutiérrez",
+      "Sourigues",
+      "Pereyra",
+      "Plátanos",
+      "Villa España",
+      "El Pato"
+    ],
+    "Florencio Varela": [
+      "Bosques",
+      "Ciudad de Florencio Varela",
+      "Estanislao Severo Zeballos",
+      "Gobernador Julio A. Costa",
+      "Ingeniero Juan Allan",
+      "La Capilla",
+      "Villa Brown",
+      "Villa San luis",
+      "Villa Santa Rosa",
+      "Villa Vatteone"
+    ]
+  }
+}

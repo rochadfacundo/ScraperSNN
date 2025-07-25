@@ -1,0 +1,364 @@
+{
+  "Zona Norte": {
+    "Vicente López": [
+      "Vicente López",
+      "Olivos",
+      "Florida",
+      "La Lucila",
+      "Villa Martelli",
+      "Munro",
+      "Carapachay",
+      "Villa Adelina"
+    ],
+    "San Isidro": [
+      "Villa Adelina",
+      "Boulogne Sur Mer",
+      "Martínez",
+      "Acassuso",
+      "San Isidro",
+      "Beccar"
+    ],
+    "San Fernando": [
+      "San Fernando",
+      "Victoria",
+      "Virreyes",
+      "Islas del Delta del Paraná"
+    ],
+    "Tigre": [
+      "Tigre",
+      "Don Torcuato",
+      "General Pacheco",
+      "El Talar",
+      "Troncos del Talar",
+      "Benavídez",
+      "Dique Luján",
+      "Ricardo Rojas",
+      "Rincón de Milberg"
+    ],
+    "Escobar": [
+      "Belén de Escobar",
+      "Garín",
+      "Ingeniero Maschwitz",
+      "Matheu",
+      "Maquinista F. Savio",
+      "Puerto Paraná",
+      "Loma Verde"
+    ],
+    "Pilar": [
+      "Del Viso",
+      "Fátima",
+      "La Lonja",
+      "Manzanares",
+      "Champagnat",
+      "San Francisco",
+      "Derqui",
+      "Villa Astolfi",
+      "Manzone",
+      "Manuel Alberti",
+      "Lagomarsino",
+      "Villa Rosa",
+      "Zelaya"
+    ],
+    "José C. Paz": [
+      "Barrio 20 de Junio",
+      "Barrio 25 de mayo",
+      "Barrio 25 de mayo sur",
+      "Barrio 9 de julio",
+      "Barrio Alberdi",
+      "Barrio Alberdi oeste",
+      "Barrio Antártida Argentina",
+      "Barrio Centenario",
+      "Barrio Diana",
+      "Barrio El Cruce",
+      "Barrio El Ombú",
+      "Barrio Frino norte",
+      "Barrio Frino sur",
+      "Barrio Infico",
+      "Barrio Juan Vucetich",
+      "Barrio La Cava",
+      "Barrio La Paz",
+      "Barrio Las Acacias",
+      "Barrio Las Heras",
+      "Barrio Lido",
+      "Barrio Mirador Altube",
+      "Barrio Monte Criollo",
+      "Barrio Moreno",
+      "Barrio Parque Abascal",
+      "Barrio Parque Alvear III",
+      "Barrio Parque Alvear IV",
+      "Barrio Parque Golf Club",
+      "Barrio Parque Jardín",
+      "Barrio Parque Peró",
+      "Barrio Piñero",
+      "Barrio Primavera",
+      "Barrio Roosvelt",
+      "Barrio Sagrada Familia",
+      "Barrio San Atilio",
+      "Barrio San Gabriel",
+      "Barrio San Luis",
+      "Barrio San Martín Oeste",
+      "Barrio Santa Paula",
+      "Barrio Sarmiento norte",
+      "Barrio Sol y Verde",
+      "Barrio Urquiza",
+      "Barrio Villa Altube",
+      "Barrio Villa Iglesias",
+      "Barrio Villa Germano",
+      "Barrio Yei Porá",
+      "Barrio Zonino"
+    ],
+    "Malvinas Argentinas": [
+      "Área de Promoción El Triángulo",
+      "Grand Bourg",
+      "Ingeniero Adolfo Sourdeaux",
+      "Ingeniero Pablo Nogués",
+      "Los Polvorines",
+      "Tortuguitas",
+      "Villa de Mayo",
+      "Tierras Altas",
+      "Malvinas Argentinas"
+    ],
+    "San Miguel": [
+      "San Miguel",
+      "Bella Vista",
+      "Campo de Mayo",
+      "Muñiz",
+      "Santa María"
+    ],
+    "General San Martín": [
+      "Villa Lynch",
+      "Villa Parque Presidente Figueroa Alcorta",
+      "Villa Monteagudo",
+      "Villa Chacabuco",
+      "Villa Maipú",
+      "Villa Granaderos de San Martín",
+      "Villa San Lorenzo",
+      "Villa Marqués",
+      "San Andrés",
+      "Villa Yapeyú",
+      "Villa San Martín",
+      "Villa Ayacucho",
+      "Villa Libertad",
+      "Billinghurst",
+      "Villa Bonich",
+      "Villa General Las Heras",
+      "Villa Gregoria Matorras",
+      "Villa Ballester Noroeste",
+      "Villa Ballester Noreste",
+      "Villa Tomás Guido",
+      "Villa Sucre",
+      "Villa Godoy Cruz",
+      "Villa Zapiola",
+      "Barrio de Jefes y Oficiales General San Martín",
+      "Villa Remedios de Escalada",
+      "Ciudad Jardín El Libertador",
+      "Villa Independencia",
+      "José León Suárez",
+      "Villa Necochea"
+    ]
+  },
+  "Zona Sur": {
+    "Avellaneda": [
+      "Avellaneda",
+      "Dock Sud",
+      "Gerli",
+      "Piñeyro",
+      "Sarandí",
+      "Villa Domínico",
+      "Wilde"
+    ],
+    "Lanús": [
+      "Gerli",
+      "Lanús Oeste",
+      "Lanús Este",
+      "Monte Chingolo",
+      "Remedios de Escalada",
+      "Valentín Alsina"
+    ],
+    "Lomas de Zamora": [
+      "Banfield",
+      "Ingeniero Budge",
+      "Llavallol",
+      "Lomas de Zamora",
+      "San José1",
+      "Temperley",
+      "Turdera",
+      "Villa Centenario",
+      "Villa Fiorito",
+      "Villa Albertina",
+      "Parque Barón",
+      "Villa Lamadrid",
+      "Santa Catalina",
+      "Santa Marta"
+    ],
+    "Esteban Echeverría": [
+      "Nueve de Abril",
+      "Canning oriental",
+      "El Jagüel",
+      "Luis Guillón",
+      "Monte Grande"
+    ],
+    "Ezeiza": [
+      "Aeropuerto Internacional Ezeiza",
+      "Canning occidental",
+      "Carlos Spegazzini",
+      "Ezeiza",
+      "La Unión",
+      "Tristán Suárez"
+    ],
+    "San Vicente": [
+      "San Vicente",
+      "Alejandro Korn",
+      "Domselaar",
+      "Las Gaviotas de Canning"
+    ],
+    "Presidente Perón": [
+      "Guernica"
+    ],
+    "Almirante Brown": [
+      "Adrogué",
+      "Burzaco",
+      "Claypole",
+      "Don Orione",
+      "Glew",
+      "José Mármol",
+      "Longchamps",
+      "Malvinas Argentinas",
+      "Ministro Rivadavia",
+      "Rafael Calzada",
+      "San Francisco de Asís",
+      "San Francisco Solano",
+      "San José"
+    ],
+    "Quilmes": [
+      "Bernal",
+      "Don Bosco",
+      "Ezpeleta",
+      "Quilmes",
+      "San Francisco Solano",
+      "Villa La Florida"
+    ],
+    "Berazategui": [
+      "Berazategui",
+      "Hudson",
+      "Juan María Gutiérrez",
+      "Sourigues",
+      "Pereyra",
+      "Plátanos",
+      "Villa España",
+      "El Pato"
+    ],
+    "Florencio Varela": [
+      "Bosques",
+      "Ciudad de Florencio Varela",
+      "Estanislao Severo Zeballos",
+      "Gobernador Julio A. Costa",
+      "Ingeniero Juan Allan",
+      "La Capilla",
+      "Villa Brown",
+      "Villa San luis",
+      "Villa Santa Rosa",
+      "Villa Vatteone"
+    ]
+  },
+  "Zona Oeste": {
+    "La Matanza": [
+      "20 de Junio",
+      "Aldo Bonzi",
+      "Ciudad Celina",
+      "Ciudad Evita",
+      "González Catán",
+      "Gregorio de Laferrere",
+      "Isidro Casanova",
+      "La Tablada",
+      "Lomas del Mirador",
+      "Rafael Castillo",
+      "Ramos Mejía",
+      "San Justo",
+      "Tapiales",
+      "Villa Luzuriaga",
+      "Villa Madero",
+      "Virrey del Pino"
+    ],
+    "Tres de Febrero": [
+      "Caseros",
+      "Churruca",
+      "Ciudad Jardín",
+      "Ciudadela",
+      "El Libertador",
+      "José Ingenieros",
+      "Loma Hermosa",
+      "Martín Coronado",
+      "11 de Septiembre",
+      "Pablo Podestá",
+      "Remedios de Escalada",
+      "Sáenz Peña",
+      "Santos Lugares",
+      "Villa Bosch",
+      "Villa Raffo"
+    ],
+    "Hurlingham": [
+      "Hurlingham",
+      "Villa Tesei",
+      "William C. Morris"
+    ],
+    "Morón": [
+      "Morón",
+      "Castelar",
+      "El Palomar",
+      "Haedo",
+      "Villa Sarmiento"
+    ],
+    "Ituzaingó": [
+      "Ituzaingó",
+      "Villa Udaondo"
+    ],
+    "Merlo": [
+      "Merlo",
+      "San Antonio de Padua",
+      "Libertad",
+      "Mariano Acosta",
+      "Parque San Martín",
+      "Pontevedra"
+    ],
+    "Moreno": [
+      "Moreno",
+      "La Reja",
+      "Francisco Álvarez",
+      "Cuartel V",
+      "Trujui",
+      "Paso del Rey"
+    ],
+    "General Rodríguez": [
+      "General Rodríguez"
+    ],
+    "Marcos Paz": [
+      "Marcos Paz",
+      "Elías Romero",
+      "Santa Rosa",
+      "Lisandro de la Torre",
+      "Santa Marta",
+      "Barrio El Portugués"
+    ]
+  },
+  "Fuera de AMBA": {
+    "General Pueyrredón": [
+      "Mar del Plata"
+    ],
+    "Bahía Blanca": [
+      "Bahía Blanca"
+    ],
+    "La Plata": [
+      "La Plata"
+    ],
+    "Neuquén": [
+      "Neuquén"
+    ],
+    "Tandil": [
+      "Tandil"
+    ],
+     "Mar Chiquita": [
+      "Mar Chiquita"
+    ]
+  }
+}

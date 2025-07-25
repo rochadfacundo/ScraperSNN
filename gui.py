@@ -11,6 +11,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__))))
 from scraping import buscar_datos
 from utils.excel import exportar_a_excel
 
+matriculas_fallidas = []
+
+
 def obtener_ruta_icono():
     if hasattr(sys, '_MEIPASS'):
         origen = os.path.join(sys._MEIPASS, "assets", "logo.ico")
@@ -27,13 +30,11 @@ root.iconbitmap(obtener_ruta_icono())
 # Logo
 logo_path = os.path.join("assets", "logo.png")
 if os.path.exists(logo_path):
-    img = Image.open(logo_path)
-    img = img.resize((100, 100))
+    img = Image.open(logo_path).resize((100, 100))
     logo_img = ImageTk.PhotoImage(img)
     logo_label = tk.Label(root, image=logo_img)
     logo_label.pack(pady=10)
 
-# Modo de búsqueda
 modo_busqueda = tk.StringVar(value="una")
 frame_radio = tk.Frame(root)
 frame_radio.pack()
@@ -41,7 +42,6 @@ frame_radio.pack()
 tk.Radiobutton(frame_radio, text="Buscar una matrícula", variable=modo_busqueda, value="una", command=lambda: alternar_inputs()).grid(row=0, column=0, padx=10)
 tk.Radiobutton(frame_radio, text="Buscar un rango de matrículas", variable=modo_busqueda, value="rango", command=lambda: alternar_inputs()).grid(row=0, column=1, padx=10)
 
-# Inputs
 frame_inputs = tk.Frame(root)
 frame_inputs.pack(pady=10)
 
@@ -62,7 +62,6 @@ def alternar_inputs():
         tk.Label(frame_inputs, text="Hasta:", font=("Arial", 10)).grid(row=1, column=0, padx=5, pady=5)
         entry_hasta.grid(row=1, column=1, padx=5)
 
-# Botón
 btn = tk.Button(
     root,
     text="Buscar",
@@ -79,11 +78,9 @@ btn = tk.Button(
 )
 btn.pack(pady=10)
 
-# Área de resultados
 resultado = tk.Text(root, height=12, font=("Consolas", 10), state="disabled")
 resultado.pack(padx=10, pady=10, fill="both", expand=True)
 
-# Lógica
 def ejecutar_busqueda():
     resultado.config(state="normal")
     resultado.delete("1.0", tk.END)
@@ -96,7 +93,7 @@ def ejecutar_busqueda():
             messagebox.showwarning("Campo vacío", "Ingresá una matrícula.")
             limpiar_estado()
             return
-        threading.Thread(target=lambda: buscar_y_exportar(matricula, True), daemon=True).start()
+        threading.Thread(target=lambda: buscar_y_exportar(matricula), daemon=True).start()
     else:
         desde = entry_desde.get().strip()
         hasta = entry_hasta.get().strip()
@@ -119,32 +116,37 @@ def limpiar_estado():
 def buscar_y_exportar(matricula: str):
     datos = buscar_datos(matricula)
 
-    # Verificar si todos los valores son "--"
-    if all(valor == "--" for valor in datos.values()):
-        resultado.config(state="normal")
-        resultado.insert(tk.END, f"⚠️ Matrícula {matricula} sin datos útiles.\n")
-        resultado.see(tk.END)
-        resultado.config(state="disabled")
-        return
-
-    exportar_a_excel(datos, matricula)
     resultado.config(state="normal")
-    resultado.insert(tk.END, f"✅ Matrícula {matricula} extraída.\n")
+    if "Error" in datos:
+        resultado.insert(tk.END, f"⚠️ {datos['Error']}\n")
+    elif all(valor == "--" for valor in datos.values()):
+        resultado.insert(tk.END, f"⚠️ Matrícula {matricula} sin datos útiles.\n")
+        matriculas_fallidas.append(matricula)
+
+    else:
+        exportar_a_excel(datos, matricula)
+        resultado.insert(tk.END, f"✅ Matrícula {matricula} extraída.\n")
     resultado.see(tk.END)
     resultado.config(state="disabled")
 
-
 def buscar_rango(inicio: int, fin: int):
+    limpiar_estado()
     resultado.config(state="normal")
-    resultado.delete("1.0", tk.END)
     resultado.insert(tk.END, "🔄 Buscando datos...\n")
     resultado.config(state="disabled")
 
     for matricula in range(inicio, fin + 1):
         buscar_y_exportar(str(matricula))
-    limpiar_estado()
+
     resultado.config(state="normal")
-    resultado.insert(tk.END, f"✅ Extracción finalizada: {fin - inicio + 1} matrículas.\n")
+    resultado.insert(tk.END, f"\n✅ Extracción finalizada: {fin - inicio + 1} matrículas.\n")
+
+    if matriculas_fallidas:
+        resultado.insert(tk.END, "\n❌ Matrículas con error o sin datos útiles:\n")
+        for m in matriculas_fallidas:
+            resultado.insert(tk.END, f" - {m}\n")
+
     resultado.config(state="disabled")
+
 
 root.mainloop()

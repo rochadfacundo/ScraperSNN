@@ -1,0 +1,82 @@
+{
+  "Zona Oeste": {
+    "La Matanza": [
+      "20 de Junio",
+      "Aldo Bonzi",
+      "Ciudad Celina",
+      "Ciudad Evita",
+      "González Catán",
+      "Gregorio de Laferrere",
+      "Isidro Casanova",
+      "La Tablada",
+      "Lomas del Mirador",
+      "Rafael Castillo",
+      "Ramos Mejía",
+      "San Justo",
+      "Tapiales",
+      "Villa Luzuriaga",
+      "Villa Madero",
+      "Virrey del Pino"
+    ],
+    "Tres de Febrero": [
+      "Caseros",
+      "Churruca",
+      "Ciudad Jardín",
+      "Ciudadela",
+      "El Libertador",
+      "José Ingenieros",
+      "Loma Hermosa",
+      "Martín Coronado",
+      "11 de Septiembre",
+      "Pablo Podestá",
+      "Remedios de Escalada",
+      "Sáenz Peña",
+      "Santos Lugares",
+      "Villa Bosch",
+      "Villa Raffo"
+    ],
+    "Hurlingham": [
+      "Hurlingham",
+      "Villa Tesei",
+      "William C. Morris"
+    ],
+    "Morón": [
+      "Morón",
+      "Castelar",
+      "El Palomar",
+      "Haedo",
+      "Villa Sarmiento"
+    ],
+    "Ituzaingó": [
+      "Ituzaingó",
+      "Villa Udaondo"
+    ],
+    "Merlo": [
+      "Merlo",
+      "San Antonio de Padua",
+      "Libertad",
+      "Mariano Acosta",
+      "Parque San Martín",
+      "Pontevedra"
+    ],
+    "Moreno": [
+      "Moreno",
+      "La Reja",
+      "Francisco Álvarez",
+      "Cuartel V",
+      "Trujui",
+      "Paso del Rey"
+    ],
+    "General Rodríguez": [
+      "General Rodríguez"
+    ],
+    "Marcos Paz": [
+      "Marcos Paz",
+      "Elías Romero",
+      "Santa Rosa",
+      "Lisandro de la Torre",
+      "Santa Marta",
+      "Barrio El Portugués"
+    ]
+  }
+}

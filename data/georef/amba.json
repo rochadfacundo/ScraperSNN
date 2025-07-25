@@ -1,0 +1,6 @@
+{
+  "Zona Norte": ["Vicente López", "San Isidro", "San Fernando", "Tigre", "San Martín"],
+  "Zona Oeste": ["Morón", "Ituzaingó", "Merlo", "La Matanza", "Hurlingham"],
+  "Zona Sur": ["Avellaneda", "Lanús", "Quilmes", "Lomas de Zamora", "Berazategui", "Florencio Varela", "Almirante Brown"],
+  "CABA": ["Ciudad Autónoma de Buenos Aires"]
+}
